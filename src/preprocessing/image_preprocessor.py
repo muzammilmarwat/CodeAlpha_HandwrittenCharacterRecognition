@@ -3,6 +3,7 @@
 from typing import Tuple
 
 import numpy as np
+from tensorflow.keras.utils import to_categorical
 
 from src.utils.logging_config import setup_logger
 
@@ -23,7 +24,10 @@ def normalize_images(images: np.ndarray) -> np.ndarray:
     return images.astype("float32") / 255.0
 
 
-def reshape_for_cnn(images: np.ndarray, image_shape: Tuple[int, int] = (28, 28)) -> np.ndarray:
+def reshape_for_cnn(
+    images: np.ndarray,
+    image_shape: Tuple[int, int] = (28, 28),
+) -> np.ndarray:
     """Reshape grayscale image batches for CNN input.
 
     Args:
@@ -37,17 +41,59 @@ def reshape_for_cnn(images: np.ndarray, image_shape: Tuple[int, int] = (28, 28))
     return images.reshape((-1, image_shape[0], image_shape[1], 1))
 
 
-def preprocess_mnist_images(images: np.ndarray) -> np.ndarray:
-    """Apply standard preprocessing for MNIST images.
+def one_hot_encode_labels(labels: np.ndarray, num_classes: int = 10) -> np.ndarray:
+    """One-hot encode integer class labels.
 
     Args:
-        images: Raw MNIST image batch.
+        labels: Integer label array.
+        num_classes: Number of output classes.
 
     Returns:
-        Normalized image batch with a channel dimension.
+        One-hot encoded label array.
+    """
+    logger.debug("One-hot encoding labels with shape %s", labels.shape)
+    return to_categorical(labels, num_classes=num_classes)
+
+
+def preprocess_mnist_images(images: np.ndarray) -> np.ndarray:
+    """Apply standard preprocessing for MNIST image arrays.
+
+    Args:
+        images: Raw MNIST image batch or a single image.
+
+    Returns:
+        Normalized image array with a channel dimension.
     """
     normalized_images = normalize_images(images)
     return reshape_for_cnn(normalized_images)
+
+
+def preprocess_mnist_data(
+    x_train: np.ndarray,
+    y_train: np.ndarray,
+    x_test: np.ndarray,
+    y_test: np.ndarray,
+    num_classes: int = 10,
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """Preprocess MNIST train and test arrays for CNN training.
+
+    Args:
+        x_train: Raw training images.
+        y_train: Raw training labels.
+        x_test: Raw test images.
+        y_test: Raw test labels.
+        num_classes: Number of output classes for one-hot encoding.
+
+    Returns:
+        Tuple of processed training images, training labels, test images, and
+        test labels.
+    """
+    logger.info("Preprocessing MNIST images and labels")
+    x_train_processed = preprocess_mnist_images(x_train)
+    x_test_processed = preprocess_mnist_images(x_test)
+    y_train_processed = one_hot_encode_labels(y_train, num_classes=num_classes)
+    y_test_processed = one_hot_encode_labels(y_test, num_classes=num_classes)
+    return x_train_processed, y_train_processed, x_test_processed, y_test_processed
 
 
 def preprocess_uploaded_image_placeholder(image: object) -> None:

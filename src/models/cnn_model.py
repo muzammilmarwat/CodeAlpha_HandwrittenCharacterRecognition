@@ -42,7 +42,7 @@ def build_baseline_cnn(
 
     model.compile(
         optimizer="adam",
-        loss="sparse_categorical_crossentropy",
+        loss="categorical_crossentropy",
         metrics=["accuracy"],
     )
     return model

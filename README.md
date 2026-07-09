@@ -8,6 +8,20 @@ Build a professional handwritten digit recognition project using the MNIST datas
 
 Phase 1 is complete: project setup and architecture. The repository currently contains reusable starter modules and placeholders only. Model training, evaluation artifacts, and the Streamlit interface will be implemented in later phases.
 
+## Installation
+
+Install runtime dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+For notebook work, install the optional development dependencies:
+
+```bash
+pip install -r requirements-dev.txt
+```
+
 ## Folder Structure
 
 ```text
