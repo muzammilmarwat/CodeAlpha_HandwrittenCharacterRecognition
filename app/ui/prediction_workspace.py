@@ -37,6 +37,7 @@ def initialize_prediction_state() -> None:
         "prediction_history": [],
         "latest_prediction": None,
         "latest_input_key": None,
+        "canvas_reset_counter": 0,
     }
     for key, value in defaults.items():
         if key not in st.session_state:
@@ -115,6 +116,11 @@ def render_canvas_source() -> None:
         )
         return
 
+    st.caption("Draw one white digit on the black canvas. Use Clear canvas to reset the drawing area.")
+    if st.button("Clear canvas", use_container_width=True):
+        st.session_state.canvas_reset_counter += 1
+        st.rerun()
+
     canvas_result = st_canvas(
         fill_color="rgba(0, 0, 0, 0)",
         stroke_width=18,
@@ -123,12 +129,12 @@ def render_canvas_source() -> None:
         width=DEFAULT_CANVAS_SIZE,
         height=DEFAULT_CANVAS_SIZE,
         drawing_mode="freedraw",
-        key="digit_canvas",
+        key=f"digit_canvas_{st.session_state.canvas_reset_counter}",
     )
     if st.button("Recognize Digit", type="primary", use_container_width=True, key="predict_canvas"):
-        if canvas_result.image_data is None:
-            raise CanvasNotAvailableError("Canvas has no image data.")
         try:
+            if canvas_result.image_data is None:
+                raise CanvasNotAvailableError("Canvas has no image data. Draw a digit before predicting.")
             result = predict_from_canvas(np.asarray(canvas_result.image_data).astype("uint8"))
             _store_prediction(result)
         except AppError as exc:
@@ -271,4 +277,3 @@ def render_prediction_workspace() -> None:
 
     render_history_panel()
     render_download_center(st.session_state.latest_prediction, st.session_state.prediction_history)
-

@@ -75,6 +75,7 @@ Reproducibility note: the saved model and metrics were not regenerated after add
 ## Streamlit App Features
 
 - Upload PNG, JPG, or JPEG digit images
+- Draw digits on an optional interactive canvas
 - Select dynamic MNIST example digits
 - Preview exact 28x28 preprocessing output
 - View top-1 prediction and top-3 probabilities
@@ -85,7 +86,7 @@ Reproducibility note: the saved model and metrics were not regenerated after add
 - Download prediction summaries, history, model card, and reports
 - Browse model information, error analysis, and project overview pages
 
-Canvas status: drawing canvas is planned but currently disabled because `streamlit-drawable-canvas` was not verified in the Python 3.11 Streamlit environment. Upload and sample inference are fully supported.
+Canvas status: drawing input is enabled with `streamlit-drawable-canvas==0.9.3` after compatibility checks on Python 3.11.9 and Streamlit 1.59.1. The app still imports the canvas component defensively, so upload and sample inference remain available if the optional component cannot load.
 
 Educational disclaimer: this application is for internship, learning, and portfolio use only.
 
