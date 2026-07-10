@@ -39,7 +39,7 @@ Educational and portfolio use only. Saliency indicates model sensitivity, not ca
 
 def prediction_summary_text(result: PredictionResult) -> str:
     """Create plain-text prediction summary content."""
-    return prediction_summary_markdown(result).replace("# ", "").replace("## ", "")
+    return prediction_summary_markdown(result).replace("## ", "").replace("# ", "")
 
 
 def history_to_csv(history: list[HistoryRecord]) -> str:
@@ -71,27 +71,23 @@ def render_download_center(
 ) -> None:
     """Render prediction and report downloads."""
     st.subheader("Download Center")
+    prediction_cols = st.columns(3)
     if result is not None:
-        st.download_button(
-            "Download prediction summary (TXT)",
-            prediction_summary_text(result),
-            file_name="prediction_summary.txt",
-        )
-        st.download_button(
-            "Download prediction summary (MD)",
-            prediction_summary_markdown(result),
-            file_name="prediction_summary.md",
-        )
+        with prediction_cols[0]:
+            st.download_button("Download TXT", prediction_summary_text(result), file_name="prediction_summary.txt")
+        with prediction_cols[1]:
+            st.download_button("Download MD", prediction_summary_markdown(result), file_name="prediction_summary.md")
     else:
-        st.caption("Run a prediction to enable prediction-summary downloads.")
+        prediction_cols[0].caption("Run a prediction to enable prediction-summary downloads.")
 
     if history:
-        st.download_button(
-            "Download session history (CSV)",
-            history_to_csv(history),
-            file_name="session_prediction_history.csv",
-            mime="text/csv",
-        )
+        with prediction_cols[2]:
+            st.download_button(
+                "Download History CSV",
+                history_to_csv(history),
+                file_name="session_prediction_history.csv",
+                mime="text/csv",
+            )
 
     report_files = [
         ("Model Card", get_model_card_path(), "model_card.md"),
@@ -99,9 +95,11 @@ def render_download_center(
         ("Evaluation Summary JSON", REPORTS_DIR / "evaluation_summary.json", "evaluation_summary.json"),
         ("Classification Report CSV", REPORTS_DIR / "classification_report.csv", "classification_report.csv"),
     ]
-    for label, path, filename in report_files:
-        if path.exists():
-            st.download_button(label, _read_file(path), file_name=filename)
-        else:
-            st.caption(f"{label} is unavailable.")
-
+    st.caption("Model and evaluation reports")
+    report_cols = st.columns(2)
+    for index, (label, path, filename) in enumerate(report_files):
+        with report_cols[index % 2]:
+            if path.exists():
+                st.download_button(f"Download {label}", _read_file(path), file_name=filename)
+            else:
+                st.caption(f"{label} is unavailable.")

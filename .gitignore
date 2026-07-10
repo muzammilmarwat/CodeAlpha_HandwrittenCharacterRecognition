@@ -1,14 +1,11 @@
 .venv/
-.venv_phase3/
-venv/
-.venv/
 venv/
 .venv311/
+.venv_phase3/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
 models/*.h5
-models/*.keras
+!models/mnist_cnn_baseline.keras
 data/processed/*.npy
 .DS_Store
-Add-Content .gitignore "`n.venv311/"

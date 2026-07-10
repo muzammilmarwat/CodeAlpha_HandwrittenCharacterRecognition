@@ -17,11 +17,12 @@ def render_hero() -> None:
           </div>
           <h1>Handwritten Digit Recognition Studio</h1>
           <p>CNN-powered handwritten digit recognition with preprocessing, confidence analysis, and saliency-based explainability.</p>
+          <p>Built with TensorFlow • Keras • Streamlit • Explainable AI</p>
           <div class="badge-row">
             <span class="badge">CNN Model</span>
             <span class="badge">99.03% Test Accuracy</span>
             <span class="badge">MNIST Digits 0-9</span>
-            <span class="badge badge-warning">Phase 4B</span>
+            <span class="badge badge-warning">v1.0.0 Ready</span>
           </div>
         </div>
         """,
@@ -41,6 +42,7 @@ def render_sidebar() -> str:
     st.sidebar.subheader("Project")
     st.sidebar.write("CodeAlpha Handwritten Character Recognition")
     st.sidebar.caption("Educational and portfolio use only.")
+    st.sidebar.success("Model Loaded | CNN Ready | 99.03% Test Accuracy | Prediction Ready")
     st.sidebar.subheader("Model")
     st.sidebar.write(MODEL_NAME)
     st.sidebar.write("TensorFlow / Keras")
@@ -54,10 +56,11 @@ def render_sidebar() -> str:
         "[Complete] Evaluation",
         "[Complete] Explainability",
         "[Complete] Inference Services",
-        "[Current] Premium Streamlit UI",
+        "[Complete] Premium UI",
+        "[Current] QA and Release",
     ]:
         st.sidebar.caption(item)
-    st.sidebar.caption(f"{APP_NAME} v{APP_VERSION}")
+    st.sidebar.caption("v1.0.0 Release Candidate")
     return page
 
 
@@ -92,9 +95,10 @@ def render_footer() -> None:
     st.markdown(
         """
         <div class="footer">
-        Educational and portfolio use only. MNIST is a clean benchmark dataset; real handwriting can be noisier.
+        Developed by Syed Muzammil Shah<br/>
+        TensorFlow • Keras • Streamlit • CodeAlpha Machine Learning Internship<br/>
+        Educational and portfolio use only.
         </div>
         """,
         unsafe_allow_html=True,
     )
-

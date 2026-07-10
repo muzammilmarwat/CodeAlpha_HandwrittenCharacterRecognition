@@ -54,6 +54,18 @@ def apply_global_style() -> None:
         }
         .badge-success { background: rgba(34, 197, 94, 0.12); color: #bbf7d0; }
         .badge-warning { background: rgba(245, 158, 11, 0.14); color: #fde68a; }
+        .stButton > button, .stDownloadButton > button {
+            border-radius: 10px !important;
+            border: 1px solid rgba(96, 165, 250, 0.45) !important;
+            background: linear-gradient(135deg, #2563eb, #4f46e5) !important;
+            color: #eff6ff !important;
+            min-height: 2.65rem;
+            font-weight: 700 !important;
+        }
+        .stButton > button:hover, .stDownloadButton > button:hover {
+            border-color: rgba(147, 197, 253, 0.9) !important;
+            filter: brightness(1.08);
+        }
         .section-title {
             margin: 1rem 0 0.45rem 0;
             font-weight: 750;
@@ -80,6 +92,12 @@ def apply_global_style() -> None:
             text-align: center;
             line-height: 1;
             color: #bfdbfe;
+        }
+        .result-shell {
+            border: 1px solid var(--border);
+            background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), rgba(15, 23, 42, 0.88));
+            border-radius: 18px;
+            padding: 1rem;
         }
         .confidence-high { color: var(--success); }
         .confidence-medium { color: var(--warning); }
@@ -108,4 +126,3 @@ def confidence_class(confidence_band: str) -> str:
         "medium": "confidence-medium",
         "low": "confidence-low",
     }.get(confidence_band, "confidence-medium")
-

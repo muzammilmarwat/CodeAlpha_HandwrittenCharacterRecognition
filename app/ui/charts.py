@@ -11,10 +11,10 @@ def top_3_probability_chart(result: PredictionResult) -> None:
     data = pd.DataFrame(
         {
             "Digit": [str(item.digit) for item in result.top_predictions],
-            "Probability": [item.probability for item in result.top_predictions],
+            "Probability (%)": [item.probability * 100 for item in result.top_predictions],
         }
     ).set_index("Digit")
-    st.bar_chart(data, horizontal=True, height=190)
+    st.bar_chart(data, horizontal=True, height=220)
 
 
 def all_class_probability_chart(result: PredictionResult) -> None:
@@ -22,7 +22,7 @@ def all_class_probability_chart(result: PredictionResult) -> None:
     data = pd.DataFrame(
         {
             "Digit": [str(index) for index in range(10)],
-            "Probability": result.probabilities,
+            "Probability (%)": [value * 100 for value in result.probabilities],
         }
     ).set_index("Digit")
     st.bar_chart(data, height=260)
@@ -57,4 +57,3 @@ def confusion_pair_chart(confusion_pairs_df: pd.DataFrame) -> None:
         axis=1,
     )
     st.bar_chart(data[["pair", "count"]].set_index("pair"), horizontal=True, height=300)
-
