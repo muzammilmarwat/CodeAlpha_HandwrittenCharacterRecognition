@@ -15,6 +15,8 @@ Model performance summary:
 - Test accuracy: approximately 98.94%
 - Test loss: approximately 0.0286
 
+Reproducibility note: the saved model and metrics were not regenerated after adding seed support. Future training runs use seed `42` for Python, NumPy, and TensorFlow. Exact metrics may still vary slightly across hardware due to TensorFlow CPU optimizations and floating-point behavior.
+
 Key reports and artifacts:
 
 - [Model card](reports/model_card.md)

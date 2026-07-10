@@ -6,34 +6,34 @@ handwritten digit recognition workflow.
 
 ## Model Performance
 - Training accuracy: 98.66%
-- Validation accuracy: 98.98%
-- Best validation accuracy: 99.05%
-- Test accuracy: 98.94%
-- Test loss: 0.0286
+- Validation accuracy: 99.08%
+- Best validation accuracy: 99.08%
+- Test accuracy: 99.03%
+- Test loss: 0.0298
 
 ## Per-Class Performance
 Strongest class by F1-score: digit 1 with F1
-0.9956. Weakest class by F1-score: digit
-9 with F1 0.9841. Lowest recall
-was observed for digit 9 with recall
-0.9802.
+0.9939. Weakest class by F1-score: digit
+8 with F1 0.9860. Lowest recall
+was observed for digit 8 with recall
+0.9774.
 
 ## Error Analysis
-- Total incorrect predictions: 106
-- Test error rate: 1.06%
-- Average confidence of incorrect predictions: 0.6994
+- Total incorrect predictions: 97
+- Test error rate: 0.97%
+- Average confidence of incorrect predictions: 0.7400
 
 Most common confusion pairs:
-- True 4 -> Predicted 9: 8
+- True 8 -> Predicted 0: 9
 - True 2 -> Predicted 7: 6
-- True 9 -> Predicted 8: 5
-- True 3 -> Predicted 5: 5
-- True 6 -> Predicted 0: 4
+- True 6 -> Predicted 5: 5
+- True 8 -> Predicted 2: 4
+- True 9 -> Predicted 1: 4
 
 ## Confidence Analysis
 Correct predictions have mean confidence
-0.9932, while incorrect
-predictions have mean confidence 0.6994.
+0.9949, while incorrect
+predictions have mean confidence 0.7400.
 Low-confidence predictions should be surfaced clearly in deployment.
 
 ## Explainability

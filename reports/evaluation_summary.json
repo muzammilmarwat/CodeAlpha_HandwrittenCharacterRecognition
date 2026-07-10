@@ -1,6 +1,6 @@
 {
   "model_path": "models\\mnist_cnn_baseline.keras",
-  "test_loss": 0.02857263758778572,
-  "test_accuracy": 0.9894000291824341,
+  "test_loss": 0.029790544882416725,
+  "test_accuracy": 0.9902999997138977,
   "test_samples": 10000
 }

@@ -1,2 +1,2 @@
 selected_model,training_accuracy,validation_accuracy,test_accuracy,test_loss,total_test_errors,test_error_rate,strongest_digit_class,weakest_digit_class,mean_confidence_correct,mean_confidence_incorrect
-mnist_cnn_baseline,0.9866481423377991,0.9898333549499512,0.9894000291824341,0.02857263758778572,106,0.0106,1,9,0.9931899309158325,0.699409008026123
+mnist_cnn_baseline,0.9865555763244629,0.9908333420753479,0.9902999997138977,0.029790544882416725,97,0.0097,1,8,0.994914710521698,0.7400428652763367

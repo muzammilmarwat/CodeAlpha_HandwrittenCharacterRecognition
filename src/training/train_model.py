@@ -1,11 +1,14 @@
 """Train the baseline CNN model on MNIST."""
 
 import json
+import random
 from pathlib import Path
 from typing import Any, Dict
 
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+import tensorflow as tf
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 
 from src.data.data_loader import get_dataset_summary, load_mnist_data
@@ -22,12 +25,25 @@ HISTORY_PATH = REPORTS_DIR / "training_history.csv"
 SUMMARY_PATH = REPORTS_DIR / "training_summary.json"
 ACCURACY_PLOT_PATH = IMAGES_DIR / "evaluation" / "training_accuracy.png"
 LOSS_PLOT_PATH = IMAGES_DIR / "evaluation" / "training_loss.png"
+RANDOM_SEED = 42
 
 
 def ensure_output_dirs() -> None:
     """Create output directories required by the training workflow."""
     for directory in [MODELS_DIR, REPORTS_DIR, IMAGES_DIR / "evaluation"]:
         directory.mkdir(parents=True, exist_ok=True)
+
+
+def set_random_seeds(seed: int = RANDOM_SEED) -> None:
+    """Set random seeds for more reproducible training runs.
+
+    Args:
+        seed: Seed value used for Python, NumPy, and TensorFlow RNGs.
+    """
+    random.seed(seed)
+    np.random.seed(seed)
+    tf.random.set_seed(seed)
+    logger.info("Random seeds set to %s", seed)
 
 
 def plot_training_metric(
@@ -71,6 +87,7 @@ def train_baseline_model(epochs: int = 6, batch_size: int = 128) -> Dict[str, An
         Training summary dictionary.
     """
     ensure_output_dirs()
+    set_random_seeds(RANDOM_SEED)
     (x_train, y_train), (x_test, y_test) = load_mnist_data()
     dataset_summary = get_dataset_summary(x_train, y_train, x_test, y_test)
     x_train_processed, y_train_processed, _, _ = preprocess_mnist_data(
@@ -135,6 +152,12 @@ def train_baseline_model(epochs: int = 6, batch_size: int = 128) -> Dict[str, An
         "epochs_requested": epochs,
         "epochs_completed": int(len(history)),
         "batch_size": batch_size,
+        "random_seed": RANDOM_SEED,
+        "reproducibility_note": (
+            "Python, NumPy, and TensorFlow random seeds were set before "
+            "training. Exact metrics may still vary slightly across hardware "
+            "and TensorFlow optimization settings."
+        ),
         "best_epoch": best_epoch,
         "final_training_accuracy": float(history["accuracy"].iloc[-1]),
         "final_validation_accuracy": float(history["val_accuracy"].iloc[-1]),

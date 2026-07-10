@@ -37,27 +37,27 @@ computer vision workflow.
 
 ## Evaluation Metrics
 - Training accuracy: 98.66%
-- Validation accuracy: 98.98%
-- Test accuracy: 98.94%
-- Test loss: 0.0286
+- Validation accuracy: 99.08%
+- Test accuracy: 99.03%
+- Test loss: 0.0298
 
 ## Per-Class Results
 Strongest digit class: 1. Weakest digit class:
-9.
+8.
 
 Top classes by F1-score:
 | digit | f1_score | recall |
 | --- | --- | --- |
-| 1 | 0.9955947136563876 | 0.9955947136563876 |
-| 0 | 0.9928716904276986 | 0.9948979591836736 |
-| 2 | 0.9922630560928434 | 0.994186046511628 |
+| 1 | 0.9938650306748468 | 0.9991189427312775 |
+| 4 | 0.9928571428571428 | 0.9908350305498982 |
+| 3 | 0.9925779317169718 | 0.9930693069306932 |
 
 Weakest classes by F1-score:
 | digit | f1_score | recall |
 | --- | --- | --- |
-| 9 | 0.9840796019900496 | 0.9801783944499504 |
-| 7 | 0.98545101842871 | 0.9883268482490272 |
-| 8 | 0.985699693564862 | 0.9907597535934292 |
+| 8 | 0.986017607457276 | 0.9774127310061602 |
+| 7 | 0.987378640776699 | 0.9892996108949416 |
+| 5 | 0.9882484611080022 | 0.9899103139013452 |
 
 ## Known Limitations
 - MNIST images are cleaner and more standardized than real handwriting.
