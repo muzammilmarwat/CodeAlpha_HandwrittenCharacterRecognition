@@ -13,7 +13,7 @@ This release prepares a complete production-style handwritten digit recognition 
 - Confidence and probability visualization
 - Saliency-map explainability
 - Error analysis and model card
-- Premium Streamlit interface
+- Final Streamlit interface screenshots
 - Automated tests and CI workflow
 
 ## ML Pipeline
@@ -67,7 +67,7 @@ streamlit run app/app.py
 
 ## Deployment Status
 
-Deployment-ready and prepared for Streamlit Community Cloud. No live deployment URL is claimed in this release.
+Deployment configuration is complete for Streamlit Community Cloud or another Python 3.11-compatible host. No live deployment URL is claimed in this release.
 
 ## Known Limitations
 
@@ -78,7 +78,7 @@ Deployment-ready and prepared for Streamlit Community Cloud. No live deployment 
 
 ## Future Improvements
 
-- Capture final screenshots and demo GIF
+- Add demo GIF
 - Deploy to Streamlit Community Cloud
 - Add monitoring notes
 - Extend to EMNIST
@@ -86,4 +86,3 @@ Deployment-ready and prepared for Streamlit Community Cloud. No live deployment 
 ## Educational Disclaimer
 
 This project is intended for education, internship, and portfolio use only.
-

@@ -6,7 +6,7 @@
 ![Pytest](https://img.shields.io/badge/Tests-Pytest-green)
 ![CI](https://img.shields.io/badge/CI-GitHub%20Actions-lightgrey)
 ![License](https://img.shields.io/badge/License-MIT-brightgreen)
-![Status](https://img.shields.io/badge/Status-v1.0.0%20Release%20Candidate-indigo)
+![Status](https://img.shields.io/badge/Status-v1.0.0%20Release%20Ready-indigo)
 
 Production-style handwritten digit recognition project built for the CodeAlpha Machine Learning Internship. The project uses MNIST, a TensorFlow/Keras CNN, reusable preprocessing and inference services, model evaluation, error analysis, saliency explainability, automated tests, and a Streamlit deployment interface.
 
@@ -18,9 +18,13 @@ The application supports image upload, built-in MNIST examples, and an optional 
 
 ## Live Demo Status
 
-Deployment-ready release candidate. No public live URL is claimed yet.
+Status: **v1.0.0 Release Ready**
 
-Deployment is prepared for Streamlit Community Cloud or another Python 3.11-compatible host. See [Deployment Guide](docs/DEPLOYMENT_GUIDE.md).
+Deployment preparation is complete for Streamlit Community Cloud or another Python 3.11-compatible host. No public live URL is claimed yet.
+
+Live deployment: **Not deployed**
+
+See [Deployment Guide](docs/DEPLOYMENT_GUIDE.md).
 
 ## Repository Snapshot
 
@@ -30,11 +34,13 @@ Deployment is prepared for Streamlit Community Cloud or another Python 3.11-comp
 | CNN training and evaluation | Complete |
 | Explainability and error analysis | Complete |
 | Streamlit inference app | Complete |
-| Drawing canvas | Enabled with defensive fallback |
+| Drawing canvas | Complete |
 | Automated tests | Complete |
-| CI workflow | Prepared |
-| Final screenshots | Pending manual capture |
-| Live deployment | Pending |
+| CI workflow | Complete |
+| Documentation | Complete |
+| Final screenshots | Complete |
+| Deployment preparation | Complete |
+| Live deployment | Not deployed |
 
 ## Key Features
 
@@ -56,16 +62,31 @@ Deployment is prepared for Streamlit Community Cloud or another Python 3.11-comp
 
 ## Application Screenshots
 
-Final screenshots are pending manual capture from the running app. The screenshot checklist is available in [docs/screenshots/README.md](docs/screenshots/README.md).
+Final screenshots were captured from the local Streamlit app using non-personal sample and canvas data.
 
-| Screenshot | Status |
-| --- | --- |
-| Home and prediction workspace | Pending capture |
-| Canvas input | Pending capture |
-| Prediction result with saliency | Pending capture |
-| Model information page | Pending capture |
-| Error analysis page | Pending capture |
-| About project page | Pending capture |
+### Prediction Workspace
+
+![Prediction Workspace](docs/screenshots/home.png)
+
+### Interactive Drawing Canvas
+
+![Canvas Input](docs/screenshots/canvas_input.png)
+
+### Prediction Result and Explainability
+
+![Prediction Result](docs/screenshots/prediction_result.png)
+
+### Model Information
+
+![Model Information](docs/screenshots/model_information.png)
+
+### Error Analysis
+
+![Error Analysis](docs/screenshots/error_analysis.png)
+
+### About Project
+
+![About Project](docs/screenshots/about_project.png)
 
 ## ML Workflow
 
@@ -234,7 +255,7 @@ The smoke test loads the saved model and performs one synthetic canvas-style inf
 
 ## Deployment
 
-Deployment configuration is prepared for Python 3.11 hosts.
+Deployment configuration is complete for Python 3.11 hosts.
 
 - Main Streamlit file: `app/app.py`
 - Runtime dependencies: `requirements.txt`
@@ -332,13 +353,13 @@ CodeAlpha_HandwrittenCharacterRecognition/
 - Explainability interface
 - Download center
 
-### Release Candidate - Phase 5: Production Release
+### Complete - Phase 5: Production Release Preparation
 
 - Automated testing
 - CI workflow
 - Documentation polish
 - Deployment preparation
-- Release v1.0.0 candidate
+- Release v1.0.0 readiness
 
 ## Limitations
 
@@ -351,7 +372,7 @@ CodeAlpha_HandwrittenCharacterRecognition/
 
 ## Future Work
 
-- Capture final app screenshots and a demo GIF.
+- Add a demo GIF.
 - Deploy to Streamlit Community Cloud.
 - Add a hosted demo link after deployment.
 - Add optional architecture diagram image.

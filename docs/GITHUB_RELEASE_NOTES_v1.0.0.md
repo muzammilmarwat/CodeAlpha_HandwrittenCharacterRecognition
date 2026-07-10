@@ -40,7 +40,7 @@ The project is structured as a deployable machine learning repository rather tha
 - Compile verification
 - Artifact integrity tests
 - GitHub Actions CI workflow
-- Deployment guide, release audit, testing checklist, and screenshot preparation guide
+- Deployment guide, release audit, testing checklist, and final screenshot guide
 - Runtime dependency cleanup and Python 3.11 deployment configuration
 
 ---
@@ -284,7 +284,7 @@ The project is deployment-ready for Streamlit-compatible Python 3.11 environment
 | `docs/DEPLOYMENT_GUIDE.md` | Deployment instructions |
 | `.github/workflows/ci.yml` | Automated validation workflow |
 
-The application is prepared for Streamlit Community Cloud or another Python 3.11-compatible hosting platform. No live deployment URL is claimed in this release.
+The application deployment configuration is complete for Streamlit Community Cloud or another Python 3.11-compatible hosting platform. No live deployment URL is claimed in this release.
 
 ---
 
@@ -444,13 +444,13 @@ The repository documentation notes that the saved model and metrics were generat
 - No adversarial robustness testing is included.
 - No production monitoring is configured yet.
 - No public live deployment URL is included in this release.
-- Final application screenshots and demo GIF are still pending manual capture.
+- Final application screenshots are included in `docs/screenshots/`.
+- Demo GIF is not included in this release.
 
 ---
 
 # 🔮 Future Improvements
 
-- Capture final Streamlit screenshots
 - Add a demo GIF
 - Deploy to Streamlit Community Cloud
 - Add a public demo link after deployment

@@ -46,17 +46,17 @@
 
 ## Screenshots
 
-- [ ] `home.png` captured
-- [ ] `canvas_input.png` captured
-- [ ] `prediction_result.png` captured
-- [ ] `model_information.png` captured
-- [ ] `error_analysis.png` captured
-- [ ] `about_project.png` captured
-- [ ] README images render
+- [x] `home.png` available
+- [x] `canvas_input.png` available
+- [x] `prediction_result.png` available
+- [x] `model_information.png` available
+- [x] `error_analysis.png` available
+- [x] `about_project.png` available
+- [x] README images render
 
 ## Deployment
 
 - [ ] Deployment guide validated
 - [ ] Clean-clone test completed
-- [ ] Streamlit Cloud configuration prepared
-
+- [x] Streamlit configuration complete
+- [x] Live deployment status documented as Not deployed
