@@ -6,7 +6,21 @@ Build a professional handwritten digit recognition project using the MNIST datas
 
 ## Current Status
 
-Phase 1 is complete: project setup and architecture. The repository currently contains reusable starter modules and placeholders only. Model training, evaluation artifacts, and the Streamlit interface will be implemented in later phases.
+Phase 3 is complete: project setup, MNIST CNN training/evaluation, inference helpers, confidence analysis, error analysis, explainability artifacts, model card, and final model selection reporting are included. Streamlit deployment will be implemented in a later phase.
+
+Model performance summary:
+
+- Training accuracy: approximately 98.66%
+- Validation accuracy: approximately 98.98%
+- Test accuracy: approximately 98.94%
+- Test loss: approximately 0.0286
+
+Key reports and artifacts:
+
+- [Model card](reports/model_card.md)
+- [Final model selection report](reports/final_model_selection/final_model_selection_report.md)
+- [Misclassified examples](images/error_analysis/misclassified_examples.png)
+- [Saliency examples](images/explainability/saliency_examples.png)
 
 ## Installation
 

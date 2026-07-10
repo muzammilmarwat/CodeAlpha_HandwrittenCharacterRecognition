@@ -1,0 +1,13 @@
+{
+  "mean_confidence_overall": 0.9900757670402527,
+  "mean_confidence_correct": 0.9931899309158325,
+  "mean_confidence_incorrect": 0.699409008026123,
+  "median_confidence": 0.9999651908874512,
+  "min_confidence": 0.3757283091545105,
+  "max_confidence": 1.0,
+  "low_confidence_threshold": 0.7,
+  "medium_confidence_threshold": 0.9,
+  "number_of_low_confidence_predictions": 117,
+  "number_of_medium_confidence_predictions": 141,
+  "number_of_high_confidence_predictions": 9742
+}
