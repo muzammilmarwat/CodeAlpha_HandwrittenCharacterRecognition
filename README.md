@@ -2,22 +2,67 @@
 
 ## Objective
 
-Build a professional handwritten digit recognition project using the MNIST dataset, CNN deep learning, image preprocessing, model evaluation, and Streamlit deployment.
+Build a professional handwritten digit recognition project using the MNIST dataset, CNN deep learning, image preprocessing, model evaluation, explainability, and Streamlit deployment.
 
-## Current Status
+## Project Status
 
-Phase 3 is complete: project setup, MNIST CNN training/evaluation, inference helpers, confidence analysis, error analysis, explainability artifacts, model card, and final model selection reporting are included. Streamlit deployment will be implemented in a later phase.
+Current milestone: **Phase 3 Complete**
 
-Model performance summary:
+Backend ML pipeline is complete.
 
-- Training accuracy: approximately 98.66%
-- Validation accuracy: approximately 98.98%
-- Test accuracy: approximately 98.94%
-- Test loss: approximately 0.0286
+Implemented:
+
+- Data pipeline
+- CNN model
+- Training pipeline
+- Evaluation
+- Explainability
+- Error analysis
+- Confidence analysis
+- Model card
+- Final model selection
+
+Next milestone:
+Interactive Streamlit deployment.
+
+Deployment is currently under active development. The trained model and inference pipeline are complete; the interactive Streamlit application will be added in Phase 4.
+
+## Model Performance
+
+| Metric | Value |
+| --- | ---: |
+| Training Accuracy | 98.66% |
+| Validation Accuracy | 99.08% |
+| Test Accuracy | 99.03% |
+| Test Loss | 0.0298 |
+| Test Error Rate | 0.97% |
 
 Reproducibility note: the saved model and metrics were not regenerated after adding seed support. Future training runs use seed `42` for Python, NumPy, and TensorFlow. Exact metrics may still vary slightly across hardware due to TensorFlow CPU optimizations and floating-point behavior.
 
-Key reports and artifacts:
+## Highlights
+
+- CNN-based handwritten digit recognition
+- TensorFlow/Keras implementation
+- Modular ML pipeline
+- Comprehensive model evaluation
+- Confidence analysis
+- Misclassification analysis
+- Saliency-map explainability
+- Production-ready repository structure
+- Reproducible training workflow
+
+## Tech Stack
+
+- Python
+- TensorFlow / Keras
+- NumPy
+- Pandas
+- Scikit-learn
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
+
+## Key Reports and Artifacts
 
 - [Model card](reports/model_card.md)
 - [Final model selection report](reports/final_model_selection/final_model_selection_report.md)
@@ -42,33 +87,76 @@ pip install -r requirements-dev.txt
 
 ```text
 CodeAlpha_HandwrittenCharacterRecognition/
-├── app/
-├── data/
-│   ├── raw/
-│   └── processed/
-├── docs/
-│   └── screenshots/
-├── images/
-│   ├── samples/
-│   └── evaluation/
-├── models/
-├── notebooks/
-├── reports/
-├── src/
-│   ├── data/
-│   ├── preprocessing/
-│   ├── models/
-│   ├── training/
-│   ├── evaluation/
-│   ├── inference/
-│   └── utils/
-└── tests/
+|-- app/
+|-- data/
+|   |-- raw/
+|   `-- processed/
+|-- docs/
+|   `-- screenshots/
+|-- images/
+|   |-- samples/
+|   |-- evaluation/
+|   |-- error_analysis/
+|   `-- explainability/
+|-- models/
+|-- notebooks/
+|-- reports/
+|   |-- error_analysis/
+|   |-- explainability/
+|   `-- final_model_selection/
+|-- src/
+|   |-- analysis/
+|   |-- data/
+|   |-- preprocessing/
+|   |-- models/
+|   |-- training/
+|   |-- evaluation/
+|   |-- inference/
+|   `-- utils/
+`-- tests/
 ```
 
-## Next Phases
+## Roadmap
 
-1. Data understanding and exploratory analysis.
-2. Image preprocessing pipeline.
-3. CNN model training.
-4. Model evaluation and reporting.
-5. Streamlit deployment.
+### [Complete] Phase 1 - Project Architecture
+
+- Production-ready repository structure
+- Modular source code organization
+- Initial documentation
+
+### [Complete] Phase 2 - CNN Training & Evaluation
+
+- MNIST data pipeline
+- Image preprocessing
+- Baseline CNN model
+- Model training
+- Evaluation pipeline
+- Training history
+- Classification report
+- Confusion matrix
+- Inference utilities
+
+### [Complete] Phase 3 - Explainability & Error Analysis
+
+- Confidence analysis
+- Misclassification analysis
+- Saliency maps
+- Per-class performance
+- Model card
+- Final model selection report
+
+### [Planned] Phase 4 - Interactive Streamlit Application
+
+- Image upload
+- Drawing canvas
+- Prediction dashboard
+- Confidence visualization
+- Explainability interface
+
+### [Planned] Phase 5 - Production Release
+
+- Automated testing
+- CI workflow
+- Documentation polish
+- Deployment
+- Release v1.0.0
