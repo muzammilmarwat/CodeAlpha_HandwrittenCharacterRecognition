@@ -6,9 +6,9 @@ Build a professional handwritten digit recognition project using the MNIST datas
 
 ## Project Status
 
-Current milestone: **Phase 3 Complete**
+Current milestone: **Phase 4B Complete**
 
-Backend ML pipeline is complete.
+Backend ML pipeline and interactive Streamlit inference interface are complete.
 
 Implemented:
 
@@ -21,11 +21,13 @@ Implemented:
 - Confidence analysis
 - Model card
 - Final model selection
+- Streamlit prediction workspace
+- Report downloads
 
 Next milestone:
-Interactive Streamlit deployment.
+Production release preparation.
 
-Deployment is currently under active development. The trained model and inference pipeline are complete; the interactive Streamlit application will be added in Phase 4.
+Deployment is currently under active development. The trained model, inference pipeline, and Streamlit interface are complete; Phase 5 will focus on final release polish.
 
 ## Model Performance
 
@@ -68,6 +70,24 @@ Reproducibility note: the saved model and metrics were not regenerated after add
 - [Final model selection report](reports/final_model_selection/final_model_selection_report.md)
 - [Misclassified examples](images/error_analysis/misclassified_examples.png)
 - [Saliency examples](images/explainability/saliency_examples.png)
+- [Screenshot plan](docs/screenshots/README.md)
+
+## Streamlit App Features
+
+- Upload PNG, JPG, or JPEG digit images
+- Select dynamic MNIST example digits
+- Preview exact 28x28 preprocessing output
+- View top-1 prediction and top-3 probabilities
+- Inspect all digit probabilities
+- Review confidence band and ambiguity warnings
+- View saliency-map explanation
+- Track session prediction history
+- Download prediction summaries, history, model card, and reports
+- Browse model information, error analysis, and project overview pages
+
+Canvas status: drawing canvas is planned but currently disabled because `streamlit-drawable-canvas` was not verified in the Python 3.11 Streamlit environment. Upload and sample inference are fully supported.
+
+Educational disclaimer: this application is for internship, learning, and portfolio use only.
 
 ## Installation
 
@@ -83,11 +103,21 @@ For notebook work, install the optional development dependencies:
 pip install -r requirements-dev.txt
 ```
 
+Run the Streamlit app:
+
+```bash
+streamlit run app/app.py
+```
+
 ## Folder Structure
 
 ```text
 CodeAlpha_HandwrittenCharacterRecognition/
 |-- app/
+|   |-- services/
+|   |-- schemas/
+|   |-- ui/
+|   `-- utils/
 |-- data/
 |   |-- raw/
 |   `-- processed/
@@ -145,13 +175,15 @@ CodeAlpha_HandwrittenCharacterRecognition/
 - Model card
 - Final model selection report
 
-### [Planned] Phase 4 - Interactive Streamlit Application
+### [Complete] Phase 4 - Interactive Streamlit Application
 
 - Image upload
-- Drawing canvas
+- Sample digit inference
 - Prediction dashboard
 - Confidence visualization
 - Explainability interface
+- Prediction history
+- Report downloads
 
 ### [Planned] Phase 5 - Production Release
 

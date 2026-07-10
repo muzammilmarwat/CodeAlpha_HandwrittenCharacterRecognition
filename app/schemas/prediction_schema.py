@@ -32,6 +32,10 @@ class PreprocessedImageResult:
     warnings: list[str] = field(default_factory=list)
     digit_area_ratio: float = 0.0
     foreground_intensity: float = 0.0
+    original_dimensions: tuple[int, int] = (0, 0)
+    processed_dimensions: tuple[int, int] = (28, 28)
+    tensor_shape: tuple[int, ...] = (1, 28, 28, 1)
+    polarity_adjusted: bool = False
 
 
 @dataclass
@@ -62,4 +66,3 @@ class HistoryRecord:
     confidence: float
     confidence_band: ConfidenceBand
     top_3_summary: str
-

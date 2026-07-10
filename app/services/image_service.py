@@ -95,6 +95,26 @@ def detect_and_correct_polarity(image_array: np.ndarray) -> np.ndarray:
     return image_array
 
 
+def was_polarity_adjusted(image_array: np.ndarray) -> bool:
+    """Return whether an image likely needs inversion to match MNIST polarity.
+
+    Args:
+        image_array: Grayscale image array in [0, 255].
+
+    Returns:
+        True when the border background appears light.
+    """
+    border_pixels = np.concatenate(
+        [
+            image_array[0, :],
+            image_array[-1, :],
+            image_array[:, 0],
+            image_array[:, -1],
+        ]
+    )
+    return float(np.median(border_pixels)) > 127
+
+
 def remove_uniform_background(image_array: np.ndarray) -> np.ndarray:
     """Normalize contrast after polarity correction.
 
@@ -244,6 +264,7 @@ def _prepare_image(image: Image.Image, source_type: SourceType) -> PreprocessedI
         original_image = image.convert("RGBA")
         grayscale = convert_to_grayscale(image)
         gray_array = np.asarray(grayscale, dtype="uint8")
+        polarity_adjusted = was_polarity_adjusted(gray_array)
         corrected = detect_and_correct_polarity(gray_array)
         normalized = remove_uniform_background(corrected)
         thresholded = threshold_image(normalized)
@@ -268,6 +289,10 @@ def _prepare_image(image: Image.Image, source_type: SourceType) -> PreprocessedI
             warnings=warnings,
             digit_area_ratio=digit_area_ratio,
             foreground_intensity=float(centered.max()) / 255.0,
+            original_dimensions=image.size,
+            processed_dimensions=centered.shape[::-1],
+            tensor_shape=tuple(model_tensor.shape),
+            polarity_adjusted=polarity_adjusted,
         )
     except (InvalidImageError, ImagePreprocessingError):
         raise
@@ -312,4 +337,3 @@ def create_preprocessing_preview(result: PreprocessedImageResult) -> Image.Image
         PIL image preview.
     """
     return Image.fromarray(result.processed_image, mode="L").resize((140, 140), Image.Resampling.NEAREST)
-
