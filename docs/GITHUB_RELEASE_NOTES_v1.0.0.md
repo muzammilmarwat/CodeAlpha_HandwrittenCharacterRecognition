@@ -11,6 +11,8 @@
 
 CodeAlpha Handwritten Character Recognition `v1.0.0` is the first stable release of a production-style computer vision project for handwritten digit recognition.
 
+This project implements handwritten digit recognition using the MNIST dataset and a Convolutional Neural Network (CNN). The architecture has been designed to be extensible to handwritten alphabet recognition using the EMNIST dataset and, in future work, full word recognition using CRNN-based sequence models.
+
 This release delivers an end-to-end MNIST digit recognition system built with TensorFlow/Keras, modular preprocessing and inference services, a trained CNN model, evaluation reports, explainability artifacts, automated tests, CI configuration, and a Streamlit application for interactive predictions.
 
 The project is structured as a deployable machine learning repository rather than a notebook-only experiment. It includes reusable source modules, application services, documentation, reports, release preparation files, and a saved Keras model artifact.

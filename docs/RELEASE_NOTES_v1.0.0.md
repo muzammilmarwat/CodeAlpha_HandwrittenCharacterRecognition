@@ -2,7 +2,7 @@
 
 ## Overview
 
-This release prepares a complete production-style handwritten digit recognition project using MNIST, TensorFlow/Keras, robust preprocessing, explainability, testing, CI, and Streamlit deployment readiness.
+This release prepares a complete production-style handwritten digit recognition project using the MNIST dataset and a Convolutional Neural Network (CNN). The architecture has been designed to be extensible to handwritten alphabet recognition using the EMNIST dataset and, in future work, full word recognition using CRNN-based sequence models.
 
 ## Highlights
 

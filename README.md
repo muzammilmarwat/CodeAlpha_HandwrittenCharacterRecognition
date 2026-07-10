@@ -12,7 +12,7 @@ Production-style handwritten digit recognition project built for the CodeAlpha M
 
 ## Project Overview
 
-This repository demonstrates an end-to-end computer vision workflow for recognizing handwritten digits from 0 to 9. It is structured as a deployable ML application, not a notebook-only experiment.
+This project implements handwritten digit recognition using the MNIST dataset and a Convolutional Neural Network (CNN). The architecture has been designed to be extensible to handwritten alphabet recognition using the EMNIST dataset and, in future work, full word recognition using CRNN-based sequence models.
 
 The application supports image upload, built-in MNIST examples, and an optional drawing canvas. It shows preprocessing previews, predictions, confidence, top-3 probabilities, all-class probabilities, saliency maps, session history, and downloadable reports.
 
